@@ -1,49 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>BISWA MODS STORE BOT</title>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#0b141c;color:#e9edef;font-family:Arial,Helvetica,sans-serif}
-.app{max-width:520px;margin:auto;height:100vh;display:flex;flex-direction:column;background:#0e1821}
-.header{height:62px;background:#17232d;display:flex;align-items:center;padding:8px 14px;gap:11px;box-shadow:0 2px 8px #0006;z-index:2}
-.avatar{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#287eff,#7a43ff);font-size:22px}
-.name{font-weight:700}.online{font-size:12px;color:#53d58a;margin-top:2px}
-.chat{flex:1;overflow-y:auto;padding:16px 10px 24px;background:radial-gradient(circle at 50% 0,#173041 0,#0b141c 55%);scroll-behavior:smooth}
-.date{text-align:center;font-size:11px;color:#9ca9b4;background:#182631;border-radius:8px;padding:5px 9px;width:max-content;margin:0 auto 15px}
-.row{display:flex;margin:8px 0}.row.bot{justify-content:flex-start}.row.user{justify-content:flex-end}
-.bubble{max-width:88%;padding:10px 12px;border-radius:8px;background:#182833;box-shadow:0 1px 2px #0005;animation:in .25s ease}
-.user .bubble{background:#176b5a}.time{font-size:10px;color:#93a5af;text-align:right;margin-top:5px}
-.welcome{line-height:1.5}.welcome strong{font-size:17px}.welcome .gold{color:#ffd166}.buttons{display:grid;gap:8px;margin-top:12px}
-button{border:0;border-radius:9px;background:#2384d7;color:#fff;font-weight:700;padding:12px;cursor:pointer;font-size:14px}
-button.secondary{background:#243642}button.green{background:#168c67}button:active{transform:scale(.97)}
-.typing{display:flex;gap:4px;padding:12px 14px}.dot{width:6px;height:6px;border-radius:50%;background:#9aaab4;animation:b 1s infinite}.dot:nth-child(2){animation-delay:.15s}.dot:nth-child(3){animation-delay:.3s}
-.hidden{display:none!important}@keyframes in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}@keyframes b{50%{transform:translateY(-4px)}}
-</style>
-</head>
-<body>
-<div class="app">
-<header class="header"><div class="avatar">⚡</div><div><div class="name">BISWA MODS STORE BOT</div><div class="online">online</div></div></header>
-<main id="chat" class="chat"></main>
-</div>
-<script>
-const chat=document.getElementById('chat');
-let audioCtx;
-function clickSound(){try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=520;g.gain.value=.025;o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+.07)}catch(e){}}
-function time(){return new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}
-function add(text,who='bot',html=false){let r=document.createElement('div');r.className='row '+who;let b=document.createElement('div');b.className='bubble';b.innerHTML=html?text:String(text).replace(/\n/g,'<br>')+'<div class="time">'+time()+'</div>';r.appendChild(b);chat.appendChild(r);chat.scrollTop=chat.scrollHeight;return b}
-function typing(){let r=document.createElement('div');r.className='row bot';r.id='typing';r.innerHTML='<div class="bubble typing"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>';chat.appendChild(r);chat.scrollTop=chat.scrollHeight}
-function removeTyping(){document.getElementById('typing')?.remove()}
-function welcome(){
-add('<div class="welcome"><strong>WELCOME BISWA MODS STORE BOT</strong><br><span class="gold">100% Safe &amp; Secure</span><br>100% Trusted<br>No Scam<br>Premium Paid Product<br>All Products Create Biswajit Rabha<br><br>Shop now<div class="buttons"><button onclick="shop()">🛍️ SHOP</button><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="secondary" onclick="orders()">🔑 My Orders</button><button class="secondary" onclick="profile()">👤 Profile</button></div></div></div><div class="time">'+time()+'</div>', 'bot', true)}
-function userCommand(){add('/start','user');typing();setTimeout(()=>{removeTyping();welcome()},450)}
-function shop(){clickSound();add('🛍️ SHOP','user');typing();setTimeout(()=>{removeTyping();add('<b>Select Your Device</b><div class="buttons"><button onclick="android()">📱 Android</button></div><div class="time">'+time()+'</div>','bot',true)},400)}
-function android(){clickSound();add('📱 Android','user');typing();setTimeout(()=>{removeTyping();add('<b>Android Products</b><div class="buttons"><button>🔥 BISWA MODS PRO+</button><button>🐉 DRAGON PANEL</button><button>👑 IMMORTAL PANEL</button></div><div class="time">'+time()+'</div>','bot',true)},400)}
-function orders(){clickSound();add('🔑 My Orders','user');typing();setTimeout(()=>{removeTyping();add('🔑 <b>MY ORDER KEYS</b><br><br>No orders found yet.<div class="time">'+time()+'</div>','bot',true)},400)}
-function profile(){clickSound();add('👤 Profile','user');typing();setTimeout(()=>{removeTyping();let code=localStorage.getItem('biswa_chat_code')||('BMS-'+Math.random().toString(36).slice(2,10).toUpperCase());localStorage.setItem('biswa_chat_code',code);add('👤 <b>YOUR PROFILE</b><br><br>Your website chat code:<br><b>'+code+'</b><br><br>Give this chat code to admin when support is needed.<div class="time">'+time()+'</div>','bot',true)},400)}
-// Automatically simulate /start when the website opens.
-window.addEventListener('load',()=>setTimeout(userCommand,250));
-</script>
-</body>
-</html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BISWA MODS STORE</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#07121a;color:#eef6fa;font-family:Arial}.app{max-width:560px;margin:auto;height:100vh;display:flex;flex-direction:column;background:#0c1821}header{padding:11px 14px;background:#172631;display:flex;gap:10px;align-items:center}.logo{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#1689ff,#8b4cff);font-size:22px}main{flex:1;overflow:auto;padding:12px;background:radial-gradient(circle at top,#173b49,#07121a 60%)}.row{display:flex;margin:7px 0}.user{justify-content:flex-end}.bubble{max-width:96%;padding:12px;border-radius:12px;background:#172b38;box-shadow:0 2px 8px #0006;animation:in .2s}.user .bubble{background:#176b5b}button,input{width:100%;padding:12px;border-radius:9px;border:1px solid #365166;background:#08131c;color:#fff;margin:5px 0}button{background:#2388d6;border:0;font-weight:800}.grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.card{padding:11px;margin:7px 0;border-radius:10px;background:#0e202c;border:1px solid #263f51}.qr{display:block;max-width:320px;width:100%;margin:10px auto;background:#fff;padding:8px;border-radius:12px}.count{text-align:center;font-size:28px;font-weight:900}small{color:#9db0ba}.key{font-family:monospace;background:#071018;border:1px solid #45627a}@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1}}</style></head><body><div class=app><header><div class=logo>⚡</div><div><b id=store>BISWA MODS STORE BOT</b><br><small>● online</small></div></header><main id=chat></main></div><script type=module>
+import {initializeApp} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import {getDatabase,ref,get,set,update,onValue} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+import {getStorage,ref as sref,uploadBytes,getDownloadURL} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+const firebaseConfig={apiKey:"AIzaSyAOyV8yiD4hpNCQNVOjqd9bwOEb2ssGx4Q",authDomain:"biswabotstore.firebaseapp.com",databaseURL:"https://biswabotstore-default-rtdb.firebaseio.com",projectId:"biswabotstore",storageBucket:"biswabotstore.firebasestorage.app",messagingSenderId:"661675846800",appId:"1:661675846800:web:e1ea465238ea4eb6b5fc15"};
+const app=initializeApp(firebaseConfig),db=getDatabase(app),storage=getStorage(app);
+const chat=document.querySelector("#chat"),code=localStorage.bmsCode||(localStorage.bmsCode="BMS-"+crypto.randomUUID().replaceAll("-","").slice(0,10).toUpperCase());
+let S={store_name:"BISWA MODS STORE BOT",welcome_message:"WELCOME BISWA MODS STORE BOT",safe_text:"100% Safe & Secure",trusted_text:"100% Trusted",scam_text:"No Scam",premium_text:"Premium Paid Product",developer_text:"All Products Create Biswajit Rabha",download_url:"https://t.me/+iDtXpSdktsgwODQ9",maintenance:false,maintenance_message:"Store is under maintenance.",accept_orders:true},P={},order=null,timer=null;
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])),money=n=>"₹"+Number(n).toLocaleString("en-IN");
+function add(x,w="bot"){let r=document.createElement("div");r.className="row "+w;r.innerHTML=`<div class="bubble">${x}<small>${new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</small></div>`;chat.appendChild(r);chat.scrollTop=chat.scrollHeight}
+async function load(){let a=await get(ref(db,"settings"));if(a.exists())S={...S,...a.val()};let b=await get(ref(db,"products"));if(b.exists())P=b.val();document.querySelector("#store").textContent=S.store_name}
+function home(){add(`<b>${esc(S.welcome_message)}</b><br><br>${esc(S.safe_text)}<br>${esc(S.trusted_text)}<br>${esc(S.scam_text)}<br>${esc(S.premium_text)}<br>${esc(S.developer_text)}<br><br><button onclick="shop()">🛍️ SHOP</button><div class="grid"><button onclick="orders()">🔑 MY ORDERS</button><button onclick="profile()">👤 PROFILE</button></div>`)}
+window.shop=()=>{if(S.maintenance||S.accept_orders===false)return add(`🔧 ${esc(S.maintenance_message)}`);add("🛍️ SHOP","user");add(`<b>Select Your Device</b><button onclick="android()">📱 Android</button>`)};
+window.android=()=>{let a=Object.entries(P).filter(x=>x[1].enabled!==false);add("📱 Android","user");add(a.length?a.map(([id,p])=>`<button onclick="product('${id}')">${esc(p.name)}<br><small>Version: ${esc(p.version||"Latest")}</small></button>`).join(""):"No products available.")};
+window.product=id=>{let p=P[id];add(esc(p.name),"user");add(`<b>${esc(p.version||"Latest")}</b><br>${esc(p.description||"")}<br><br>${Object.entries(p.durations||{}).filter(x=>x[1].enabled!==false).map(([d,v])=>`<button onclick="checkout('${id}','${d}')">${esc(v.label)} — ${money(v.price)}</button>`).join("")}`)};
+async function qr(price){let x=await get(ref(db,"qr_codes/"+price));return x.exists()?x.val().url:""}
+window.checkout=async(id,d)=>{let p=P[id],v=p.durations[d];order={orderId:"BMS-"+crypto.randomUUID().replaceAll("-","").slice(0,12).toUpperCase(),chatCode:code,productId:id,product:p.name,duration:v.label,price:Number(v.price),createdAt:Date.now(),expiresAt:Date.now()+300000,status:"pending"};await set(ref(db,"orders/"+order.orderId),order);payment()};
+async function payment(){let q=await qr(order.price);add(`Product: ${esc(order.product)}<br>Duration: ${esc(order.duration)}<br>Price: ${money(order.price)}<br>Order ID: ${order.orderId}<br>Chat Code: ${code}`,"user");add(`${q?`<img class="qr" src="${esc(q)}">`:"<div class=card>QR not configured for this price.</div>"}<div class=count id=ct>05:00</div><small>Complete your payment within 5 minutes.<br>Payments after expiry will not be verified.<br>No key will be delivered.<br>No refund will be provided.</small><button onclick="screen()">📸 SEND PAYMENT SCREENSHOT</button>`);clearInterval(timer);timer=setInterval(()=>{let n=Math.max(0,Math.ceil((order.expiresAt-Date.now())/1000)),e=document.querySelector("#ct");if(e)e.textContent=String(Math.floor(n/60)).padStart(2,"0")+":"+String(n%60).padStart(2,"0");if(!n){clearInterval(timer);expire()}},250);onValue(ref(db,"orders/"+order.orderId),s=>{let o=s.val();if(!o)return;if(o.status==="generating")add("⚡ <b>Please wait, your order key is generating...</b>");if(o.status==="rejected")add("❌ <b>Payment Rejected</b>");if(o.status==="approved"&&o.license_key)deliver(o)})}
+window.screen=()=>add(`<b>📸 Payment Screenshot</b><br><input id=file type=file accept="image/*"><button onclick="sendShot()">📤 SEND SCREENSHOT</button>`);
+window.sendShot=async()=>{let f=document.querySelector("#file").files[0];if(!f)return alert("Select screenshot");if(Date.now()>order.expiresAt)return expire();let x=sref(storage,"payment_screenshots/"+order.orderId+"/"+Date.now()+"-"+code);await uploadBytes(x,f);let u=await getDownloadURL(x);await update(ref(db,"orders/"+order.orderId),{status:"payment_submitted",screenshot_url:u,submittedAt:Date.now()});add(`📸 <b>Screenshot sent.</b><br>Chat Code: <b>${code}</b><br><br>⏳ Please wait for admin checking.`)};
+async function expire(){let x=await get(ref(db,"orders/"+order.orderId));if(x.val()?.status==="pending"){await update(ref(db,"orders/"+order.orderId),{status:"expired"});add("❌ <b>Payment Expired</b><br><br>Please create a new order.")}}
+function deliver(o){add(`<b>🎉 PAYMENT SUCCESSFUL</b><br><br>Product: ${esc(o.product)}<br>Duration: ${esc(o.duration)}<br>Price: ${money(o.price)}<br><br>Your Key:<br><button class=key onclick="copyKey('${esc(o.license_key)}')">${esc(o.license_key)}</button><br><br>Purchase Date: ${new Date(o.approvedAt||Date.now()).toLocaleString()}<br>Expiry Date: ${o.expiry_date?new Date(o.expiry_date).toLocaleString():"Set by admin"}<button onclick="location.href='${esc(S.download_url)}'">⬇️ DOWNLOAD</button>`)}
+window.copyKey=async x=>{try{await navigator.clipboard.writeText(x);alert("Key copied!")}catch(e){prompt("Copy key:",x)}};
+window.orders=async()=>{let x=await get(ref(db,"orders")),a=Object.values(x.val()||{}).filter(o=>o.chatCode===code).reverse();add("🔑 MY ORDER KEYS","user");add(a.length?a.map(o=>`<div class=card><b>${esc(o.product)}</b><br>Duration: ${esc(o.duration)}<br>Price: ${money(o.price)}<br>Order ID: ${esc(o.orderId)}<br>Status: ${esc(o.status)}${o.license_key?`<br><br><button class=key onclick="copyKey('${esc(o.license_key)}')">${esc(o.license_key)}</button><button onclick="location.href='${esc(S.download_url)}'">⬇️ DOWNLOAD</button>`:""}</div>`).join(""):"No orders found.")};
+window.profile=()=>add(`<b>👤 YOUR PROFILE</b><br><br>Your website chat code:<br><button class=key onclick="copyKey('${code}')">${code}</button>`);
+load().then(home);
+</script></body></html>
